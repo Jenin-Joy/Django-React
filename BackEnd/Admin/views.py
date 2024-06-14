@@ -157,3 +157,9 @@ def user(request):
     if request.method == "GET":
         serializer = SelectUserSerializer(tbl_user.objects.all(), many=True)
         return Response(serializer.data, status=201)
+
+@api_view(['GET'])
+def shop(request):
+    if request.method == "GET":
+        serializer = SelectShopSerializer(tbl_shop.objects.all(), many=True)
+        return Response(serializer.data, status=201)

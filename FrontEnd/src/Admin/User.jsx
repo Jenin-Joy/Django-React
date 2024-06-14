@@ -35,7 +35,7 @@ const User = () => {
                     <td>{user.user_address}</td>
                     <td>{user.place.district.district_name}</td>
                     <td>{user.place.place_name}</td>
-                    <td><img src={`/sidebar.jpg`} style={{ width: '100px', height: '100px' }} /></td>
+                    <td><a href={`http://127.0.0.1:8000/${user.user_photo}`}><img src={`http://127.0.0.1:8000/${user.user_photo}`} style={{ width: '100px', height: '100px' }} /></a></td>
                 </tr>
             ))}
         </table>

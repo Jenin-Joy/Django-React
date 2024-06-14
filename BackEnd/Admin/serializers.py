@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from Admin.models import *
-from Guest.models import tbl_user
+from Guest.models import tbl_user,tbl_shop
 class DistrictSerializer(serializers.ModelSerializer):
     class Meta:
         model = tbl_district
@@ -38,3 +38,9 @@ class SelectUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = tbl_user
         fields = ['id', 'user_name', 'user_email', 'user_contact', 'user_password', 'user_address', 'place', 'user_photo']
+
+class SelectShopSerializer(serializers.ModelSerializer):
+    place = SelectPlaceSerializer()
+    class Meta:
+        model = tbl_shop
+        fields = ['id', 'shop_name', 'shop_email', 'shop_password', 'shop_contact', 'shop_address', 'place', 'shop_photo', 'shop_proof']

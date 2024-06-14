@@ -13,6 +13,8 @@ import User from './Admin/User';
 import MainPage from './Admin/MainPage';
 import Admin_Homepage from './Admin/Admin_Homepage';
 import NewShop from './Admin/NewShop';
+import ApprovedShop from './Admin/ApprovedShop';
+import RejectedShop from './Admin/RejectedShop';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
       {
         path: "NewShop",
         element: <NewShop/>
+      },
+      {
+        path: "ApprovedShop",
+        element: <ApprovedShop/>
+      },
+      {
+        path: "RejectedShop",
+        element: <RejectedShop/>
       }
     ]
   }
