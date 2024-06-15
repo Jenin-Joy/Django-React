@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom'
 const Navebar = () => {
     const [locbtn, setlocbtn] = useState(false)
     const [users, setusers] = useState(false)
-    const [sidebar, setsidebar] = useState(false)
+    const [sidebar, setsidebar] = useState(true)
     return (
         <div className='container'>
             <div className='main-content'>

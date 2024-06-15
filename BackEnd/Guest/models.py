@@ -20,3 +20,4 @@ class tbl_shop(models.Model):
     shop_photo = models.FileField(upload_to='Assets/Shop/')
     shop_proof = models.FileField(upload_to='Assets/Shop/')
     place = models.ForeignKey(tbl_place, on_delete=models.CASCADE)
+    shop_status = models.IntegerField(default=0)

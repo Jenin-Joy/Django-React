@@ -19,5 +19,9 @@ urlpatterns = [
     path('updatesubcategory/<int:id>',views.updatesubcategory,name="updatesubcategory"),
 
     path('user/',views.user,name="user"),
+
     path('shop/',views.shop,name="shop"),
+    path('verifyshop/<int:id>/<int:status>',views.verifyshop,name="verifyshop"),
+    path('approvedshop/',views.approvedshop,name="approvedshop"),
+    path('rejectedshop/',views.rejectedshop,name="rejectedshop"),
 ]

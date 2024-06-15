@@ -15,6 +15,10 @@ import Admin_Homepage from './Admin/Admin_Homepage';
 import NewShop from './Admin/NewShop';
 import ApprovedShop from './Admin/ApprovedShop';
 import RejectedShop from './Admin/RejectedShop';
+import UserHomepage from './User/UserHomepage';
+import Profile from './Shop/Profile';
+import ShopMainPage from './Shop/ShopMainPage';
+import ShopHomepage from './Shop/ShopHomepage';
 
 const router = createBrowserRouter([
   {
@@ -68,6 +72,24 @@ const router = createBrowserRouter([
       {
         path: "RejectedShop",
         element: <RejectedShop/>
+      }
+    ]
+  },
+  {
+    path: "UserHome",
+    element: <UserHomepage/>
+  },
+  {
+    path: "ShopHome",
+    element: <ShopMainPage/>,
+    children : [
+      {
+        path: "",
+        element: <ShopHomepage/>
+      },
+      {
+        path: "Profile",
+        element:<Profile/>
       }
     ]
   }

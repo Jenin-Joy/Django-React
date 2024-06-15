@@ -10,6 +10,12 @@ const NewShop = () => {
         })
     }
 
+    const verify = (id, status) => {
+        axios.put("http://127.0.0.1:8000/Admin/verifyshop/"+id + "/" + status).then((response) => {
+            alert(response.data.msg)
+            selshop()
+        })
+    }
     useEffect(() => {
         selshop()
     },[])
@@ -39,7 +45,7 @@ const NewShop = () => {
                     <td>{shop.place.place_name}</td>
                     <td><a href={`http://127.0.0.1:8000/${shop.shop_photo}`}><img src={`http://127.0.0.1:8000/${shop.shop_photo}`} alt="" style={{ width: '70px', height: '100px' }} /></a></td>
                     <td><a href={`http://127.0.0.1:8000/${shop.shop_proof}`}><img src={`http://127.0.0.1:8000/${shop.shop_proof}`} alt="" style={{ width: '70px', height: '100px' }} /></a></td>
-                    <td><i class="fa-solid fa-check edit-button"></i> <i class="fa-solid fa-xmark delete-button"></i></td>
+                    <td><i class="fa-solid fa-check edit-button" onClick={() => verify(shop.id, 1)}></i> <i class="fa-solid fa-xmark delete-button" onClick={() => verify(shop.id, 2)}></i></td>
                 </tr>
             ))}
         </table>

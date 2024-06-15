@@ -322,3 +322,11 @@ nav {
  .box {
   width: -webkit-fill-available;
  }
+
+ .shopnavbar {
+  background-color: #3f51b5;
+ }
+
+ .shop-welcome {
+  margin-left: 20px;
+ }

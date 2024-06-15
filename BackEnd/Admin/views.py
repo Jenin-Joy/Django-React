@@ -161,5 +161,33 @@ def user(request):
 @api_view(['GET'])
 def shop(request):
     if request.method == "GET":
-        serializer = SelectShopSerializer(tbl_shop.objects.all(), many=True)
+        serializer = SelectShopSerializer(tbl_shop.objects.filter(shop_status=0), many=True)
+        return Response(serializer.data, status=201)
+
+@api_view(['PUT'])
+def verifyshop(request, id, status):
+    if request.method == "PUT":
+        if status == 1:
+            shop = tbl_shop.objects.get(id=id)
+            shop.shop_status = status
+            shop.save()
+            return Response({"msg":"Shop Approved "}, status=201)
+        else:
+            shop = tbl_shop.objects.get(id=id)
+            shop.shop_status = status
+            shop.save()
+            return Response({"msg":"Shop Rejected "}, status=201)
+    else:
+        return Response({"msg":"Invalid request"}, status=400)
+
+@api_view(['GET'])
+def approvedshop(request):
+    if request.method == "GET":
+        serializer = SelectShopSerializer(tbl_shop.objects.filter(shop_status=1), many=True)
+        return Response(serializer.data, status=201)
+
+@api_view(['GET'])
+def rejectedshop(request):
+    if request.method == "GET":
+        serializer = SelectShopSerializer(tbl_shop.objects.filter(shop_status=2), many=True)
         return Response(serializer.data, status=201)

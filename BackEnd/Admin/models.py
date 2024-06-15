@@ -15,3 +15,9 @@ class tbl_place(models.Model):
 class tbl_subcategory(models.Model):
     subcategory_name = models.CharField(max_length=30)
     category = models.ForeignKey(tbl_category, on_delete=models.CASCADE)
+
+class tbl_admin(models.Model):
+    admin_name = models.CharField(max_length=30)
+    admin_email = models.CharField(max_length=30)
+    admin_contact = models.CharField(max_length=30)
+    admin_password = models.CharField(max_length=30)
